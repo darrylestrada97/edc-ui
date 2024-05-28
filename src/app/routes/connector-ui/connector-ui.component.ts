@@ -1,12 +1,18 @@
-import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
-import {Component, Inject, OnInit} from '@angular/core';
-import {Title} from '@angular/platform-browser';
-import {Observable} from 'rxjs';
-import {map, shareReplay} from 'rxjs/operators';
-import {APP_CONFIG, AppConfig} from '../../core/config/app-config';
-import {LoginPollingService} from '../../core/services/login-polling.service';
-import {TitleUtilsService} from '../../core/services/title-utils.service';
-import {routes} from './connector-ui-routing.module';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Component, Inject, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { Observable } from 'rxjs';
+import { map, shareReplay } from 'rxjs/operators';
+import { APP_CONFIG, AppConfig } from '../../core/config/app-config';
+import { LoginPollingService } from '../../core/services/login-polling.service';
+import { TitleUtilsService } from '../../core/services/title-utils.service';
+import { routes } from './connector-ui-routing.module';
+
+
+
+
+
+
 
 @Component({
   selector: 'connector-ui-page-layout',
@@ -21,6 +27,7 @@ export class ConnectorUiComponent implements OnInit {
       map((result) => result.matches),
       shareReplay(),
     );
+  isDrawerOpen = false;
 
   routes = routes;
 
@@ -30,7 +37,7 @@ export class ConnectorUiComponent implements OnInit {
     public titleService: Title,
     private breakpointObserver: BreakpointObserver,
     private loginPollingService: LoginPollingService,
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.titleUtilsService.startUpdatingTitleFromRouteData('EDC Connector');

@@ -1,4 +1,4 @@
-import {EdcUiThemeConfig} from './edc-ui-theme-config';
+import { EdcUiThemeConfig } from './edc-ui-theme-config';
 
 export const SOVITY_THEME: EdcUiThemeConfig = {
   theme: 'theme-sovity',
@@ -12,4 +12,11 @@ export const MDS_THEME: EdcUiThemeConfig = {
   brandFaviconSrc: '/assets/images/mds_favicon.ico',
   brandLogoSrc: '/assets/images/mds_logo.svg',
   brandLogoStyle: 'height: 57px; margin-top: 5px; margin-left: 5px;',
+};
+
+export const I2CAT_THEME: EdcUiThemeConfig = {
+  theme: 'theme-i2cat',
+  brandFaviconSrc: '/assets/images/i2cat_logo.png',
+  brandLogoSrc: '/assets/images/i2cat_logo.svg',
+  brandLogoStyle: 'width: 70%;',
 };

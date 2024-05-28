@@ -3,10 +3,9 @@
     class="sidenav"
     #drawer
     fixedInViewport
-    [disableClose]="true"
     [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'"
-    [opened]="(isHandset$ | async) === false">
+    [opened]="isDrawerOpen">
     <mat-toolbar class="custom-toolbar shrink-0">
       <img
         width="70%"
@@ -62,12 +61,16 @@
   <mat-sidenav-content>
     <mat-toolbar color="primary">
       <button
-        *ngIf="isHandset$ | async"
         type="button"
         mat-icon-button
         aria-label="Toggle sidenav"
-        (click)="drawer.toggle()">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        (click)="isDrawerOpen = !isDrawerOpen">
+        <mat-icon
+          style="transition: transform 0.5s ease-in-out"
+          aria-label="Side nav toggle icon"
+          [style.transform]="isDrawerOpen ? 'scaleX(-1)' : ''"
+          >menu_open</mat-icon
+        >
       </button>
       <span>{{ titleService.getTitle() }}</span>
     </mat-toolbar>

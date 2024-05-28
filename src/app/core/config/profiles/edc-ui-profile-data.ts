@@ -1,8 +1,8 @@
-import {MDS_THEME, SOVITY_THEME} from './edc-ui-theme-data';
-import {COMMUNITY_EDITION_FEATURES} from './feature-sets/community-edition-features';
-import {ENTERPRISE_EDITION_FEATURES} from './feature-sets/enterprise-edition-features';
-import {MDS_FEATURES} from './feature-sets/mds-features';
-import {inferEdcUiProfileType} from './infer-edc-ui-profile-type';
+import { MDS_THEME, SOVITY_THEME, I2CAT_THEME } from './edc-ui-theme-data';
+import { COMMUNITY_EDITION_FEATURES } from './feature-sets/community-edition-features';
+import { ENTERPRISE_EDITION_FEATURES } from './feature-sets/enterprise-edition-features';
+import { MDS_FEATURES } from './feature-sets/mds-features';
+import { inferEdcUiProfileType } from './infer-edc-ui-profile-type';
 
 /**
  * List of available profiles.
@@ -12,6 +12,11 @@ import {inferEdcUiProfileType} from './infer-edc-ui-profile-type';
 export const EDC_UI_PROFILE_DATA = inferEdcUiProfileType({
   'sovity-open-source': {
     ...SOVITY_THEME,
+    routes: 'connector-ui',
+    features: new Set(COMMUNITY_EDITION_FEATURES),
+  },
+  'i2cat-open-source': {
+    ...I2CAT_THEME,
     routes: 'connector-ui',
     features: new Set(COMMUNITY_EDITION_FEATURES),
   },

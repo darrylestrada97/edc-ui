@@ -1,6 +1,7 @@
 @use '@angular/material' as mat;
 @use 'theme-colors' as sovityColors;
 @use 'theme-colors.mds' as mdsColors;
+@use 'theme-colors.i2cat' as i2catColors;
 @use 'theme-generated-variables' as themeGeneratedVars;
 
 // Import styles that aren't theme dependant (including typography)
@@ -54,6 +55,13 @@ $custom-typography: mat.define-typography-config(
   );
 }
 
+.theme-i2cat {
+  @include mat.all-component-themes(i2catColors.$theme);
+  @include themeGeneratedVars.theme-vars(
+    i2catColors.$theme,
+    i2catColors.$link-color
+  );
+}
 .theme-mds {
   @include mat.all-component-themes(mdsColors.$theme);
   @include themeGeneratedVars.theme-vars(
